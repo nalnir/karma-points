@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/karma-points', {useNewUrlParser: true})
+mongoose.connect('mongodb://localhost/karma-points')
     .then(() => console.log("Connected"))
     .catch(err => console.log(err))
 
@@ -21,8 +21,6 @@ var karmaSchema = new Schema({
     points: Number
 })
 
-karmaSchema.pre('save', () => { console.log('saved!'); });
-
 var Karma = mongoose.model('Karma', karmaSchema)
 
 var testUser = new Karma({  
@@ -43,15 +41,3 @@ testUser.save(function(err, user){
       console.log('Success: testUser saved in db')
     }
 })
-
-testUser.find(function (err, users) {
-    if (err) return console.error(err);
-    console.log(users);
-})
-
-// testUser.create(function (err, user) {
-//     if (err) return handleError(err);
-//     // saved!
-// });
-
-
