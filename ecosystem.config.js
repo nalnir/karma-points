@@ -8,16 +8,8 @@ module.exports = {
         // First application    
         {   
             name: 'karma_points',   
-            script: './src/index.js',  
-            env: { 
-                COMMON_VARIABLE: 
-                'true'
-            },
-            env_production: {   
-                NODE_ENV: 
-                'production'
-            }      
-        },
+            script: './src/server/index.js',   
+        }
     ],
     
     
@@ -56,9 +48,9 @@ module.exports = {
         deploy : {
             production : {
               "key"  : "/Users/Juico/.ssh",
-              "user" : "node",
+              "user" : "ubuntu",
               // Multi host is possible, just by passing IPs/hostname as an array
-              "host" : ["212.83.163.3"],
+              "host" : ["18.222.189.211"],
               // Branch
               "ref"  : "origin/master",
               // Git repository to clone
