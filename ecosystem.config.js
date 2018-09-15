@@ -50,7 +50,7 @@ module.exports = {
               "key"  : "/Users/Juico/.ssh",
               "user" : "ubuntu",
               // Multi host is possible, just by passing IPs/hostname as an array
-              "host" : ["18.222.189.211"],
+              "host" : ["172.31.33.62"],
               // Branch
               "ref"  : "origin/master",
               // Git repository to clone
