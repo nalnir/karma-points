@@ -47,10 +47,10 @@ module.exports = {
 
         deploy : {
             production : {
-              "key"  : "/Users/Juico/.ssh",
+              "key"  : "/Users/Juico/.ssh/id_rsa.pub",
               "user" : "ubuntu",
               // Multi host is possible, just by passing IPs/hostname as an array
-              "host" : ["172.31.33.62"],
+              "host" : ["18.222.189.211"],
               // Branch
               "ref"  : "origin/master",
               // Git repository to clone
