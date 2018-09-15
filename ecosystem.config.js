@@ -47,7 +47,7 @@ module.exports = {
 
         deploy : {
             production : {
-              "key"  : "/Users/Juico/.ssh/id_rsa.pub",
+              "key"  : "/Users/Juico/.ssh/id_rsa",
               "user" : "ubuntu",
               // Multi host is possible, just by passing IPs/hostname as an array
               "host" : ["18.222.189.211"],
@@ -56,7 +56,7 @@ module.exports = {
               // Git repository to clone
               "repo" : "git@ggithub.com:nalnir/karma-points.git",
               // Path of the application on target servers
-              "path" : "./",
+              "path" : "/community/karma-points",
               // Can be used to give options in the format used in the configura-
               // tion file.  This is useful for specifying options for which there
               // is no separate command-line flag, see 'man ssh' 
@@ -66,16 +66,23 @@ module.exports = {
               // even before the setup process starts
               // can be multiple commands separated by the character ";"
               // or path to a script on your local machine
-              "pre-setup" : "apt-get install git ; ls -la",
+              "pre-setup" : "ls -la ; " +
+                          "sudo mkdir /opt/tv ; sudo chown -R ubuntu.ubuntu /opt/tv/ ; " +
+                          "sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - ; " +
+                          "sudo apt-get install -y nodejs ; " +
+                          "sudo npm install pm2 -g ; ",
               // Commands / path to a script on the host machine
               // This will be executed on the host after cloning the repository
               // eg: placing configurations in the shared dir etc
-              "post-setup": "ls -la",
+            //   "post-setup": "ls -la",
+              'pre-deploy':
+                'sudo mkdir /community/karma-points ; ' +
+                'sudo chown -R ubuntu.ubuntu /opt/tv/workflowapi/',
               // Commands to execute locally (on the same machine you deploy things)
               // Can be multiple commands separated by the character ";"
               "pre-deploy-local" : "echo 'This is a local executed command'",
               // Commands to be executed on the server after the repo has been cloned
-              "post-deploy" : "npm install"
+              "post-deploy" : "sudo npm install"
               // Environment variables that must be injected in all applications on this env
             }
         }
