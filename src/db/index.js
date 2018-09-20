@@ -34,10 +34,34 @@ var testUser = new Karma({
     points: 4
 })
 
-testUser.save(function(err, user){
-    if (err, null) {
-      console.log('Error: testUser NOT saved in db');
-    } else if (null, user) {
-      console.log('Success: testUser saved in db')
-    }
-})
+//db methods ********************
+
+let save = (user, callback) => {
+    Karma.find({id: user.id}, function(err, docs) {
+        if (err, null) {
+            throw err
+        } else if (null, docs) {
+            if (docs.length === 0) {
+                new Karma(user).save()
+            } else {
+                console.log('User already exists!')
+                callback(docs[0].points)
+            }
+        }
+    })
+}
+
+// let getPoints = (user) => {
+//     Karma.find({id: user.id}, function(err, docs) {
+//         if (err, null) {
+//             throw err
+//         } else if (null, docs) {
+//             console.log(docs.points)
+//         }
+//     })
+// }
+
+// ******************************
+
+module.exports.save = save
+// module.exports.getPoints = getPoints

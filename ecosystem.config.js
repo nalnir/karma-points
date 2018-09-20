@@ -8,9 +8,19 @@ module.exports = {
         // First application    
         {   
             name: 'karma_points',   
-            script: './src/server/index.js',   
+            script: './src/server/index.js',env: {
+                COMMON_VARIABLE:
+                    'true'
+            },
+            env_production: {
+
+                NODE_ENV:
+                    'production'
+
+            }   
         }
     ],
+
     
     
     
@@ -20,27 +30,27 @@ module.exports = {
     */
     
     deploy: {  
-        production: {  
+        production: { 
+            key: '/Users/Juico/.ssh/id_rsa',
             user: 'ubuntu', 
-            key: "/Users/Juico/.ssh/id_rsa",
-            host: ["18.222.189.211"],
+            host: ["18.218.144.27"],
             ref: 'origin/master',
-            ssh_options: "StrictHostKeyChecking=no",
+            ssh_options: ["StrictHostKeyChecking=no", "PasswordAuthentication=no", "ForwardAgent=yes"],  
             repo: 'git@github.com:nalnir/karma-points.git',
             path: '/community/karma-points',
             'pre-setup':
-                "ls -la; sudo mkdir /community ; sudo chown -R ubuntu.ubuntu /community ; " +
+                "ls -la; sudo mkdir /karma-points ; sudo chown -R ubuntu.ubuntu /karma-points ; " +
                 "sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - ; " +
                 "sudo apt-get install -y nodejs ; " +
                 "sudo npm install pm2 -g ; ",
             'pre-deploy':
-                'sudo mkdir //community/karma-points ; ' +
-                'sudo mkdir /community/karma-points/source ; sudo mkdir /community/karma-points/shared ;' +
-                'sudo chown -R ubuntu.ubuntu /community/karma-points',
+                'sudo mkdir /karma-points ; ' +
+                'sudo mkdir /karma-points/source ; sudo mkdir /karma-points/shared ;' +
+                'sudo chown -R ubuntu.ubuntu /karma-points',
             'pre-deploy-local':
                 "echo 'This is a local executed command'",
             'post-deploy':
-                'npm install && cp -R os/ /community/karma-points/source/node_modules/openstack && ' +
+                'npm install && ' +
                 'pm2 reload ecosystem.config.js --env production'
             },
         },
