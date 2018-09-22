@@ -13,7 +13,7 @@ app.use(bodyParser.json())
 
 app.get('/', (req, res) => res.send('Hello World! How are you doing?'))
 
-app.listen(3001, () => console.log('Example app listening on port 3001! I am the awesome dude yeah!'))
+app.listen(3001, () => console.log('Example app listening on port 3001! We are all awesome'))
 
 // saves user and gets its karma-points
 app.get('/users', (req, res) => {
