@@ -36,6 +36,10 @@ var testUser = new Karma({
 
 //db methods ********************
 
+let tester = () => {
+    return 1
+}
+
 let save = (user, callback) => {
     Karma.find({id: user.id}, function(err, docs) {
         if (err, null) {
@@ -51,17 +55,7 @@ let save = (user, callback) => {
     })
 }
 
-// let getPoints = (user) => {
-//     Karma.find({id: user.id}, function(err, docs) {
-//         if (err, null) {
-//             throw err
-//         } else if (null, docs) {
-//             console.log(docs.points)
-//         }
-//     })
-// }
-
 // ******************************
 
 module.exports.save = save
-// module.exports.getPoints = getPoints
+module.exports.tester = tester
