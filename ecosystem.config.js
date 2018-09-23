@@ -35,15 +35,15 @@ module.exports = {
             ref: 'origin/master',
             ssh_options: ["StrictHostKeyChecking=no", "PasswordAuthentication=no", "ForwardAgent=yes"],  
             repo: 'git@github.com:nalnir/karma-points.git',
-            path: '/karma-points',
+            path: '/home/karma-points',
             'pre-setup':
-                "ls -la; sudo mkdir /karma-points ; sudo chown -R ubuntu.ubuntu /karma-points ; " +
+                "ls -la; sudo mkdir /home/karma-points ; sudo chown -R ubuntu.ubuntu /home/karma-points ; " +
                 "sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - ; " +
                 "sudo apt-get install -y nodejs ; " +
                 "sudo npm install pm2 -g ; ",
             'pre-deploy':
-                'sudo mkdir /karma-points ; ' +
-                'sudo mkdir /karma-points/source ; sudo mkdir /karma-points/shared ;' +
+                'sudo mkdir /home/karma-points ; ' +
+                'sudo mkdir /home/karma-points/source ; sudo mkdir /home/karma-points/shared ;' +
                 'sudo chown -R ubuntu.ubuntu /karma-points',
             'pre-deploy-local':
                 "echo 'This is a local executed command'",
