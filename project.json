@@ -1,0 +1,8 @@
+{
+  "name": "karma-points",
+  "description": "Puts and gets karma points of a specific user",
+  "memory": 128,
+  "timeout": 6,
+  "role": "arn:aws:iam::733822580412:role/karma-points_lambda_function",
+  "environment": {}
+}
