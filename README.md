@@ -18,7 +18,7 @@ I created a mock data in dynamoDB in AWS Lambda
 *UPDATE POINTS FUNCTION*
 
 URL for API:
-https://uiwr3rzqge.execute-api.us-east-2.amazonaws.com/default/karma-points_put?id=1234
+https://uiwr3rzqge.execute-api.us-east-2.amazonaws.com/default/karma-points_put?id=USER_ID
 
 *Replace USER_ID at the end of the url with the four digit user id*
 
