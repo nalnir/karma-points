@@ -1,10 +1,4 @@
-// console.log('starting function')
-// exports.handle = function(e, ctx, cb) {
-//   console.log('processing event: %j', e)
-//   cb(null, { hello: 'world' })
-// }
-
-console.log('starting function')
+console.log('GET function')
 
 const AWS = require('aws-sdk')
 const docClient = new AWS.DynamoDB.DocumentClient({region: "us-east-2"})
