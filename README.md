@@ -22,6 +22,7 @@ https://uiwr3rzqge.execute-api.us-east-2.amazonaws.com/default/karma-points_put?
 
 *Replace USER_ID at the end of the url with the four digit user id*
 
+If user id doesn't exist, the function insert a new user id into the db with first karma point.
 Response returns json object holding how many points does the user have after an update.
 
 I created a mock data in dynamoDB in AWS Lambda
